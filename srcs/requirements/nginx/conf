@@ -1,0 +1,19 @@
+events {}
+
+http {
+  server {
+    listen 443 ssl;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    # Add your SSL certificate and private key file paths
+    ssl_certificate /path/to/certificate.crt;
+    ssl_certificate_key /path/to/private.key;
+
+    # Add your NGINX server configurations
+    location / {
+      # NGINX server configurations
+    }
+  }
+}
