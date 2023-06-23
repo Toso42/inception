@@ -1,14 +1,17 @@
 FROM debian:buster
 
 RUN apt-get update \
-    && apt-get install -y nginx gettext-base\
+    && apt-get install -y nginx openssl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY ./conf/my.conf /etc/nginx/my.conf
-COPY ./conf/mycert.pem /etc/nginx/ssl/
-COPY ./conf/myssl.pem /etc/nginx/ssl/
+RUN mkdir -p /etc/ssl
 
-EXPOSE 80
+COPY conf/my.conf /etc/nginx/nginx.conf
+COPY tools/runner.sh /bin/runner.sh
+
+#EXPOSE 80
 EXPOSE 443
 
-CMD /bin/bash -c "envsubst < /etc/nginx/my.conf > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+# CMD /bin/bash -c "envsubst < /etc/nginx/my.conf > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+# RUN chmod 777 /bin/runner.sh
+ENTRYPOINT [ "/bin/bash" , "/bin/runner.sh" ]
