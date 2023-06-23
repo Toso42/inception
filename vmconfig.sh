@@ -6,4 +6,4 @@
 # git clone git@github.com:Toso42/inception.git
 
 sudo apt update && sudo apt upgrade -y \
-sudo apt install git
+sudo apt install vim
