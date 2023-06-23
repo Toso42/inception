@@ -1,4 +1,5 @@
-# manually:
+# README:
+# DO THE FOLLOWING BY HAND ON A CLEAN DEBIAN SYSTEM
 # su -
 # adduser *user sudo
 # logout and login
@@ -10,7 +11,7 @@ sudo apt install vim flatpak make
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.visualstudio.code
 
-# official docker installation steps
+# official docker installation steps for DEBIAN
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -23,3 +24,7 @@ echo \
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+# docker group setup for 
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
