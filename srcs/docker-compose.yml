@@ -1,6 +1,30 @@
 version: '3'
-  
+
+networks:
+  inception:
+
+volumes:
+  site:
+  db:
+
 services:
+
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    ports:
+      - 9000:9000 
+      - 3306:3306
+    env_file:
+      - .env
+    container_name: wordpress
+    restart: always
+    networks:
+      - inception
+    volumes:
+      - site:/var/www/html/
+
   nginx:
     build:
       context: ./requirements/nginx/
@@ -10,4 +34,9 @@ services:
       - 443:443
     env_file:
       - .env
+    container_name: nginx
     restart: always
+    networks:
+      - inception
+    volumes:
+      - site:/var/www/html/

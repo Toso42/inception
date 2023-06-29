@@ -5,6 +5,7 @@
 # logout and login
 # sudo apt install git
 # git clone git@github.com:Toso42/inception.git
+# !!! remember to chmod the script
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install vim flatpak make
@@ -27,4 +28,4 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 # docker group setup for 
 sudo groupadd docker
 sudo usermod -aG docker $USER
-newgrp docker
+#newgrp docker
