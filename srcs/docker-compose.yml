@@ -27,7 +27,7 @@ services:
 
   nginx:
     build:
-      context: ./requirements/nginx/
+      context: ./requirements/nginx
       dockerfile: Dockerfile
     ports:
       - 443:443
@@ -39,3 +39,5 @@ services:
       - inception
     volumes:
       - site:/var/www/html/
+    depends_on:
+      - wordpress
