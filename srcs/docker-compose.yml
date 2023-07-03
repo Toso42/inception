@@ -13,7 +13,7 @@ services:
     build:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
-    ports:
+#    ports:
 #      - 9000:9000
 #      - 3306:3306
     env_file:
