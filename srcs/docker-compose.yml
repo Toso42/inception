@@ -14,8 +14,8 @@ services:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
     ports:
-      - 9000:9000
-      - 3306:3306
+#      - 9000:9000
+#      - 3306:3306
     env_file:
       - .env
     container_name: wordpress

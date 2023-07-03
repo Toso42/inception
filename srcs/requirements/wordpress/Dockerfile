@@ -24,6 +24,6 @@ COPY tools/runner.sh /bin/runner.sh
 COPY tools/test.php /var/www/html/test.php
 COPY tools/test.html /var/www/html/test.html
 EXPOSE 9000
-EXPOSE 3306
+#EXPOSE 3306
 
 ENTRYPOINT [ "/bin/bash" , "/bin/runner.sh" ]
