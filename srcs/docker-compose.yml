@@ -24,6 +24,8 @@ services:
       - inception
     volumes:
       - site:/var/www/html/
+    depends_on:
+      - mariadb
 
   nginx:
     build:
