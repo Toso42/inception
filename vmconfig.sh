@@ -8,6 +8,8 @@
 # !!! remember to chmod the script
 # !!! remember to edit /etc/hosts for forward browser requests to localhost
 
+# !!! REMEMBER firefox forcefully fallbacks to https, change network.stricttransportsecurity.preloadlist and browser.fixup.fallback-to-https to false
+
 sudo apt update && sudo apt upgrade -y
 sudo apt install vim flatpak make
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
