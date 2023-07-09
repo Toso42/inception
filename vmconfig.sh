@@ -6,6 +6,7 @@
 # sudo apt install git
 # git clone git@github.com:Toso42/inception.git
 # !!! remember to chmod the script
+# !!! remember to edit /etc/hosts for forward browser requests to localhost
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install vim flatpak make
@@ -32,4 +33,4 @@ sudo mkdir /home/tdi-leo.42.fr
 sudo mkdir /home/tdi-leo.42.fr/data
 sudo mkdir /home/tdi-leo.42.fr/data/database
 sudo mkdir /home/tdi-leo.42.fr/data/site
-sudo chown user:docker /home/tdi-leo.42.fr/data/ -R #needed for docker volumes
+sudo chown "$USER":docker /home/tdi-leo.42.fr/data/ -R #needed for docker volumes

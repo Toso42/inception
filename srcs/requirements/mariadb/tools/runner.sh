@@ -20,7 +20,7 @@ else
     mysql < db.conf
     service mysql stop
 fi
-#while true; do sleep 1; done
+while true; do sleep 1; done
 
 # mysql daemon run
 echo "Restarting Mysql"
