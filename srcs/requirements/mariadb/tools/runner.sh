@@ -7,7 +7,7 @@ CONF=db.conf
 if [ -f "$CONF" ]; then
 	echo "db already configured"
 else
-    service mysql start
+    service mysql restart
 
     # wait a few seconds to get service up before configuring db
     sleep 2
@@ -20,7 +20,7 @@ else
     mysql < db.conf
     service mysql stop
 fi
-while true; do sleep 1; done
+#while true; do sleep 1; done
 
 # mysql daemon run
 echo "Restarting Mysql"
