@@ -35,6 +35,6 @@ RUN cp wp-cli.phar /usr/bin/wp
 
 WORKDIR /var/www/html
 EXPOSE 9000
-#EXPOSE 3306
+EXPOSE 3306
 
 ENTRYPOINT [ "/bin/bash" , "/bin/runner.sh" ]

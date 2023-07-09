@@ -5,7 +5,17 @@ networks:
 
 volumes:
   site:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/tdi-leo.42.fr/data/site/'
   db:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/tdi-leo.42.fr/data/database/'
 
 services:
 
@@ -13,9 +23,6 @@ services:
     build:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
-#    ports:
-#      - 9000:9000
-#      - 3306:3306
     env_file:
       - .env
     container_name: wordpress
@@ -54,5 +61,5 @@ services:
     restart: always
     networks:
       - inception
-#    volumes:
-#      - db:/
+    volumes:
+      - db:/var/lib/mysql/

@@ -28,4 +28,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 # docker group setup for 
 sudo groupadd docker
 sudo usermod -aG docker $USER
-#newgrp docker
+sudo mkdir /home/tdi-leo.42.fr
+sudo mkdir /home/tdi-leo.42.fr/data
+sudo mkdir /home/tdi-leo.42.fr/data/database
+sudo mkdir /home/tdi-leo.42.fr/data/site
+sudo chown user:docker /home/tdi-leo.42.fr/data/ -R #needed for docker volumes
