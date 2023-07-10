@@ -1,21 +1,23 @@
-version: '3'
+version: '3.5'
 
 networks:
   inception:
 
 volumes:
   site:
+    name: site
     driver: local
     driver_opts:
-      type: 'none'
+      type: none
       o: 'bind'
       device: '/home/tdi-leo.42.fr/data/site/'
   db:
+    name: db
     driver: local
     driver_opts:
-      type: 'none'
+      type: none
       o: 'bind'
-      device: '/home/tdi-leo.42.fr/data/database/'
+      device: '/home/tdi-leo.42.fr/data/db/'
 
 services:
 
@@ -50,16 +52,18 @@ services:
       - site:/var/www/html/
     depends_on:
       - wordpress
-    
+
   mariadb:
+    container_name: mariadb
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
-    env_file:
-      - .env
-    container_name: mariadb
-    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - 3306:3306
     networks:
       - inception
-    volumes:
-      - db:/var/lib/mysql/
+    restart: always
+    env_file:
+      - .env

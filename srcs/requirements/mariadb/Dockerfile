@@ -1,12 +1,16 @@
-FROM debian:buster
+# FROM debian:buster
 
-RUN apt update -y
-RUN apt upgrade -y
-RUN apt install mariadb-server -y
+# RUN apt update -y
+# RUN apt upgrade -y
+# RUN apt install mariadb-server -y
+FROM alpine:3.13
 
-COPY tools/runner.sh /bin/runner.sh
-COPY tools/50-server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
+RUN apk update && apk upgrade
+RUN apk add --no-cache mariadb mariadb-client
 
-EXPOSE 3306
+COPY tools/runner.sh /tmp/runner.sh
+#COPY tools/50-server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-ENTRYPOINT [ "/bin/bash" , "/bin/runner.sh" ]
+#EXPOSE 3306
+
+ENTRYPOINT [ "sh" , "/tmp/runner.sh" ]
