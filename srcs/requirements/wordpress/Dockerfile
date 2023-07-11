@@ -24,8 +24,8 @@ RUN mkdir -p /run/php && chown www-data:www-data /run/php
 #COPY tools/www.conf /etc/php/7.3/fpm/pool.d
 
 COPY tools/runner.sh /bin/runner.sh
-COPY tools/test.php /var/www/html/test.php
-COPY tools/test.html /var/www/html/test.html
+#COPY tools/test.php /var/www/html/test.php
+#COPY tools/test.html /var/www/html/test.html
 COPY tools/www.conf /etc/php/7.3/fpm/pool.d
 #COPY tools/php.ini	/etc/php/
 
