@@ -31,7 +31,6 @@ GRANT ALL PRIVILEGES ON $WPDB_NAME.* TO '$WPDB_USER'@'%';
 FLUSH PRIVILEGES;
 EOF
     /usr/bin/mysqld --user=mysql --bootstrap < $tmp
-
     rm -f $tmp 
 fi
 
