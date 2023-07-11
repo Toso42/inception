@@ -11,6 +11,7 @@ clean:
 	docker volume prune -af
 	docker system prune -a
 fclean:
-	@$(shell docker rmi -f $(shell docker images -a -q)) > /dev/null
+	$(docker volume rm $(docker volume ls -q))
+#	$(shell docker rmi -f $(shell docker images -a -q))
 	sudo rm -rf /home/tdi-leo.42.fr/data
 #	sudo rm -rf /home/tdi-leo.42.fr/data
