@@ -2,6 +2,7 @@ version: '3.5'
 
 networks:
   inception:
+    name: inception
 
 volumes:
   site:
@@ -60,8 +61,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - db:/var/lib/mysql
-    ports:
-      - 3306:3306
     networks:
       - inception
     restart: always
